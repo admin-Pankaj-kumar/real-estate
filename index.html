@@ -9,212 +9,159 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Mulish:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
-:root {
-  --bg: #ffffff;
-  --bg-alt: #f7f5f1;
-  --bg-cream: #faf8f4;
-  --ink: #1a1a1a;
-  --ink-soft: #4a4a4a;
-  --muted: #888;
-  --line: #e6e2d8;
-  --line-soft: #f0ede5;
-  --brand: #b89352;
-  --brand-dark: #8a6e3c;
-  --brand-light: #d9b878;
-  --shadow: 0 6px 24px -8px rgba(26,26,26,.12);
-  --shadow-lg: 0 20px 60px -20px rgba(26,26,26,.25);
-  --font: "Mulish", -apple-system, system-ui, sans-serif;
-}
-
-* { box-sizing: border-box; margin: 0; padding: 0; }
-html, body { background: var(--bg); color: var(--ink); font-family: var(--font); font-size: 15px; line-height: 1.6; -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; }
-a { color: inherit; text-decoration: none; }
-button { font-family: inherit; cursor: pointer; border: none; background: none; color: inherit; }
-img { display: block; max-width: 100%; }
-
-.shell { max-width: 1320px; margin: 0 auto; padding: 0 40px; }
-@media (max-width: 720px) { .shell { padding: 0 20px; } }
-
-/* HEADER */
-header.site { position: sticky; top: 0; z-index: 100; background: rgba(255,255,255,.97); backdrop-filter: blur(12px); border-bottom: 1px solid var(--line-soft); }
-header.site .row { display: flex; align-items: center; justify-content: space-between; padding: 18px 0; gap: 32px; }
-.brand { display: flex; align-items: center; gap: 12px; white-space: nowrap; }
-.brand .mark { width: 44px; height: 44px; display: inline-flex; align-items: center; justify-content: center; background: var(--brand); color: white; font-weight: 800; font-size: 18px; letter-spacing: -.02em; }
-.brand .name { display: flex; flex-direction: column; line-height: 1.15; }
-.brand .name .a { font-weight: 700; font-size: 16px; letter-spacing: .01em; color: var(--ink); }
-.brand .name .b { font-size: 9.5px; letter-spacing: .25em; text-transform: uppercase; color: var(--muted); margin-top: 3px; }
-nav.top { display: flex; gap: 30px; font-size: 13px; font-weight: 500; color: var(--ink-soft); }
-nav.top a { padding: 6px 0; transition: color .2s; }
-nav.top a:hover { color: var(--brand); }
-@media (max-width: 920px) { nav.top { display: none; } }
-.cta-pill { font-size: 12px; font-weight: 600; letter-spacing: .04em; padding: 11px 22px; background: var(--brand); color: white; text-transform: uppercase; transition: background .2s; }
-.cta-pill:hover { background: var(--brand-dark); }
-
-/* HERO */
-.hero { position: relative; height: 88vh; min-height: 600px; overflow: hidden; background: #222; }
-.hero-slide { position: absolute; inset: 0; background-size: cover; background-position: center; opacity: 0; transition: opacity 1.2s ease-in-out; }
-.hero-slide.active { opacity: 1; }
-.hero-slide::after { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, rgba(0,0,0,.55) 0%, rgba(0,0,0,.25) 50%, rgba(0,0,0,.45) 100%); }
-.hero-content { position: absolute; left: 0; right: 0; bottom: 0; padding: 0 0 100px; z-index: 2; }
-.hero-content .shell { color: white; }
-.hero-impression { font-size: 10px; letter-spacing: .3em; text-transform: uppercase; opacity: .8; margin-bottom: 20px; }
-.hero h1 { font-size: clamp(40px, 6vw, 72px); font-weight: 300; line-height: 1.05; letter-spacing: -.015em; max-width: 800px; margin-bottom: 14px; }
-.hero h1 b { font-weight: 700; }
-.hero .tagline { font-size: clamp(16px, 1.4vw, 19px); font-weight: 400; max-width: 600px; line-height: 1.5; margin-bottom: 32px; opacity: .92; }
-.hero .know-more { display: inline-flex; align-items: center; gap: 12px; font-size: 12px; font-weight: 600; letter-spacing: .18em; text-transform: uppercase; padding: 16px 32px; border: 1.5px solid white; color: white; transition: all .25s; }
-.hero .know-more:hover { background: white; color: var(--ink); }
-.hero .know-more .arrow { transition: transform .25s; }
-.hero .know-more:hover .arrow { transform: translateX(4px); }
-.hero-dots { position: absolute; bottom: 32px; left: 0; right: 0; display: flex; justify-content: center; gap: 8px; z-index: 3; }
-.hero-dot { width: 32px; height: 2px; background: rgba(255,255,255,.3); cursor: pointer; transition: background .25s; }
-.hero-dot.active { background: white; }
-
-/* SEARCH BAR */
-.search-bar { position: relative; margin-top: -56px; z-index: 10; margin-bottom: 80px; }
-.search-bar .box { background: white; box-shadow: var(--shadow-lg); display: grid; grid-template-columns: 1fr 1fr 1fr auto; gap: 0; align-items: stretch; }
-@media (max-width: 720px) { .search-bar .box { grid-template-columns: 1fr; } }
-.search-bar label { display: block; padding: 18px 24px 16px; border-right: 1px solid var(--line-soft); cursor: pointer; transition: background .2s; }
-.search-bar label:last-of-type { border-right: none; }
-.search-bar label:hover { background: var(--bg-cream); }
-.search-bar .lbl { font-size: 10px; letter-spacing: .22em; text-transform: uppercase; color: var(--muted); margin-bottom: 6px; font-weight: 600; }
-.search-bar select { width: 100%; border: none; outline: none; font-family: var(--font); font-size: 15px; font-weight: 600; color: var(--ink); background: none; cursor: pointer; appearance: none; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'%3E%3Cpath fill='%23b89352' d='M5 6L0 0h10z'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right center; padding-right: 18px; }
-.search-bar button.search { background: var(--brand); color: white; padding: 0 44px; font-size: 13px; font-weight: 700; letter-spacing: .15em; text-transform: uppercase; transition: background .2s; }
-.search-bar button.search:hover { background: var(--brand-dark); }
-@media (max-width: 720px) { .search-bar button.search { padding: 18px; } }
-
-/* CITY TILES */
-.cities { padding: 0 0 80px; }
-.cities .grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
-@media (max-width: 920px) { .cities .grid { grid-template-columns: repeat(2, 1fr); } }
-.city-tile { position: relative; aspect-ratio: 4/5; overflow: hidden; cursor: pointer; background: #ddd; }
-.city-tile img { width: 100%; height: 100%; object-fit: cover; transition: transform .8s cubic-bezier(.2,.7,.2,1); }
-.city-tile:hover img { transform: scale(1.08); }
-.city-tile::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, transparent 35%, rgba(0,0,0,.78) 100%); }
-.city-tile .label { position: absolute; left: 24px; right: 24px; bottom: 24px; z-index: 2; color: white; }
-.city-tile .label .name { font-size: 24px; font-weight: 600; letter-spacing: -.005em; margin-bottom: 4px; }
-.city-tile .label .count { font-size: 12px; letter-spacing: .18em; text-transform: uppercase; opacity: .85; }
-
-/* SECTION HEADERS */
-.section-head { padding: 60px 0 30px; text-align: center; }
-.section-head .pre { font-size: 11px; letter-spacing: .32em; text-transform: uppercase; color: var(--brand); margin-bottom: 14px; font-weight: 700; }
-.section-head h2 { font-size: clamp(32px, 4.5vw, 48px); font-weight: 300; letter-spacing: -.012em; line-height: 1.1; }
-.section-head h2 b { font-weight: 700; }
-
-/* TABS */
-.tabs { display: flex; justify-content: center; gap: 4px; border-bottom: 1px solid var(--line); margin-bottom: 40px; flex-wrap: wrap; }
-.tab { padding: 16px 28px; font-size: 13px; font-weight: 600; letter-spacing: .05em; color: var(--ink-soft); border-bottom: 2px solid transparent; margin-bottom: -1px; transition: all .2s; text-transform: uppercase; }
-.tab:hover { color: var(--ink); }
-.tab.active { color: var(--brand); border-bottom-color: var(--brand); }
-.tab .count { margin-left: 8px; font-size: 11px; background: var(--bg-alt); color: var(--ink-soft); padding: 2px 8px; border-radius: 99px; letter-spacing: 0; }
-.tab.active .count { background: var(--brand); color: white; }
-
-/* CAROUSEL */
-.carousel-wrap { position: relative; margin: 0 -10px; }
-.carousel { display: flex; gap: 20px; overflow-x: auto; scroll-snap-type: x mandatory; scroll-behavior: smooth; padding: 4px 10px 20px; scrollbar-width: none; }
-.carousel::-webkit-scrollbar { display: none; }
-.carousel-arrow { position: absolute; top: 38%; transform: translateY(-50%); width: 48px; height: 48px; background: white; color: var(--ink); border: 1px solid var(--line); display: flex; align-items: center; justify-content: center; font-size: 18px; box-shadow: var(--shadow); z-index: 5; transition: all .2s; }
-.carousel-arrow:hover { background: var(--brand); color: white; border-color: var(--brand); }
-.carousel-arrow.prev { left: -22px; }
-.carousel-arrow.next { right: -22px; }
-@media (max-width: 720px) { .carousel-arrow { display: none; } }
-
-/* PROJECT CARD */
-.proj-card { flex: 0 0 360px; background: white; border: 1px solid var(--line-soft); scroll-snap-align: start; cursor: pointer; transition: all .35s cubic-bezier(.2,.7,.2,1); display: flex; flex-direction: column; }
-@media (max-width: 540px) { .proj-card { flex: 0 0 calc(100vw - 60px); } }
-.proj-card:hover { box-shadow: var(--shadow-lg); border-color: var(--brand); transform: translateY(-4px); }
-.proj-card .img-wrap { aspect-ratio: 4/3; overflow: hidden; position: relative; background: #eee; }
-.proj-card .img-wrap img { width: 100%; height: 100%; object-fit: cover; transition: transform .8s cubic-bezier(.2,.7,.2,1); }
-.proj-card:hover .img-wrap img { transform: scale(1.05); }
-.proj-card .impression { position: absolute; top: 12px; left: 12px; z-index: 2; font-size: 10px; letter-spacing: .2em; text-transform: uppercase; background: rgba(255,255,255,.95); color: var(--ink-soft); padding: 5px 11px; font-weight: 600; }
-.proj-card .status-flag { position: absolute; top: 12px; right: 12px; z-index: 2; font-size: 10px; letter-spacing: .18em; text-transform: uppercase; background: var(--brand); color: white; padding: 5px 11px; font-weight: 700; }
-.proj-card .body { padding: 22px 24px 24px; flex: 1; display: flex; flex-direction: column; }
-.proj-card .body .pname { font-size: 22px; font-weight: 700; line-height: 1.2; margin-bottom: 6px; letter-spacing: -.005em; }
-.proj-card .body .ploc { font-size: 13px; color: var(--muted); margin-bottom: 14px; display: flex; align-items: center; gap: 6px; }
-.proj-card .body .ploc::before { content: ""; width: 14px; height: 14px; background: var(--brand); -webkit-mask: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path d='M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z'/></svg>") center/contain no-repeat; mask: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path d='M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z'/></svg>") center/contain no-repeat; flex-shrink: 0; }
-.proj-card .body .ptype { font-size: 14px; font-weight: 600; color: var(--ink); padding-top: 14px; border-top: 1px solid var(--line-soft); margin-top: auto; }
-.proj-card .body .pcta { margin-top: 16px; font-size: 12px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--brand); display: flex; align-items: center; justify-content: space-between; }
-.proj-card .body .pcta .arrow { width: 28px; height: 28px; border: 1px solid var(--brand); display: inline-flex; align-items: center; justify-content: center; transition: all .25s; }
-.proj-card:hover .body .pcta .arrow { background: var(--brand); color: white; }
-
-/* TESTIMONIALS */
-.testimonials { background: var(--bg-cream); padding: 100px 0; margin-top: 100px; }
-.testimonials .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; margin-top: 40px; }
-@media (max-width: 920px) { .testimonials .grid { grid-template-columns: 1fr; } }
-.testimonial { background: white; padding: 32px 28px 28px; border-top: 3px solid var(--brand); }
-.testimonial .quote-mark { font-size: 56px; line-height: .5; color: var(--brand); font-family: Georgia, serif; margin-bottom: 8px; }
-.testimonial h4 { font-size: 17px; font-weight: 700; margin-bottom: 10px; line-height: 1.3; }
-.testimonial p { font-size: 14px; color: var(--ink-soft); line-height: 1.65; margin-bottom: 20px; }
-.testimonial .who { font-size: 13px; font-weight: 700; color: var(--ink); }
-.testimonial .where { font-size: 12px; color: var(--muted); margin-top: 2px; }
-
-/* CTA BAND */
-.cta-band { background: var(--ink); color: white; padding: 80px 0; text-align: center; }
-.cta-band h2 { font-size: clamp(28px, 4vw, 42px); font-weight: 300; line-height: 1.1; margin-bottom: 14px; max-width: 720px; margin-left: auto; margin-right: auto; }
-.cta-band h2 b { font-weight: 700; color: var(--brand-light); }
-.cta-band p { color: rgba(255,255,255,.7); font-size: 16px; margin-bottom: 32px; }
-.cta-band a { display: inline-block; padding: 16px 36px; background: var(--brand); color: white; font-size: 12px; font-weight: 700; letter-spacing: .18em; text-transform: uppercase; transition: background .2s; }
-.cta-band a:hover { background: var(--brand-light); }
-
-/* FOOTER */
-footer { background: var(--bg-cream); padding: 64px 0 28px; border-top: 1px solid var(--line); }
-footer .top { display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 48px; margin-bottom: 48px; }
-@media (max-width: 820px) { footer .top { grid-template-columns: 1fr 1fr; gap: 32px; } }
-footer .brand-block p { margin-top: 18px; color: var(--ink-soft); font-size: 13px; line-height: 1.7; max-width: 320px; }
-footer .col h4 { font-size: 11px; letter-spacing: .22em; text-transform: uppercase; color: var(--ink); margin-bottom: 16px; font-weight: 800; }
-footer .col a { display: block; padding: 5px 0; font-size: 13px; color: var(--ink-soft); }
-footer .col a:hover { color: var(--brand); }
-footer .bottom { padding-top: 24px; border-top: 1px solid var(--line); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; font-size: 12px; color: var(--muted); }
-
-/* LOADING/EMPTY */
-.loading { display: flex; flex-direction: column; align-items: center; gap: 16px; padding: 80px 20px; color: var(--muted); font-size: 14px; width: 100%; }
-.spinner { width: 36px; height: 36px; border: 2px solid var(--line); border-top-color: var(--brand); border-radius: 50%; animation: spin .9s linear infinite; }
-@keyframes spin { to { transform: rotate(360deg); } }
-.empty { padding: 80px 20px; text-align: center; color: var(--muted); font-size: 15px; font-style: italic; border: 1px dashed var(--line); background: var(--bg-cream); width: 100%; }
-
-/* MODAL */
-.modal-bg { position: fixed; inset: 0; background: rgba(26,26,26,.65); backdrop-filter: blur(6px); display: none; align-items: center; justify-content: center; z-index: 1000; padding: 24px; }
-.modal-bg.open { display: flex; animation: fadeIn .25s ease-out; }
-@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-.modal { background: white; width: 100%; max-width: 660px; max-height: 92vh; overflow-y: auto; position: relative; animation: slideUp .4s cubic-bezier(.2,.7,.2,1); }
-@keyframes slideUp { from { transform: translateY(24px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
-.modal .close { position: absolute; top: 16px; right: 16px; width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; font-size: 22px; color: white; background: rgba(26,26,26,.6); backdrop-filter: blur(8px); z-index: 5; transition: background .2s; }
-.modal .close:hover { background: var(--brand); }
-.modal-banner { height: 200px; position: relative; overflow: hidden; }
-.modal-banner img { width: 100%; height: 100%; object-fit: cover; }
-.modal-banner::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,0) 30%, rgba(0,0,0,.75) 100%); }
-.modal-banner .overlay { position: absolute; left: 36px; bottom: 22px; right: 36px; z-index: 2; color: white; }
-.modal-banner .dev { font-size: 11px; letter-spacing: .22em; text-transform: uppercase; color: var(--brand-light); margin-bottom: 6px; font-weight: 700; }
-.modal-banner h2 { font-size: 26px; font-weight: 700; line-height: 1.15; }
-.modal-inner { padding: 32px 36px 36px; }
-@media (max-width: 540px) { .modal-inner { padding: 26px 22px; } .modal-banner .overlay { left: 22px; right: 22px; } }
-.modal-inner .intro { font-size: 14px; color: var(--ink-soft); line-height: 1.6; margin-bottom: 24px; }
-.field { margin-bottom: 18px; }
-.field label { display: block; font-size: 10px; letter-spacing: .2em; text-transform: uppercase; color: var(--muted); margin-bottom: 8px; font-weight: 700; }
-.field input, .field select, .field textarea { width: 100%; padding: 13px 14px; font-family: var(--font); font-size: 14px; border: 1px solid var(--line); background: white; color: var(--ink); transition: border-color .2s; }
-.field input::placeholder, .field textarea::placeholder { color: #b8b8b8; }
-.field input:focus, .field select:focus, .field textarea:focus { outline: none; border-color: var(--brand); }
-.field select { appearance: none; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'%3E%3Cpath fill='%23b89352' d='M5 6L0 0h10z'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 14px center; padding-right: 36px; }
-.field textarea { resize: vertical; min-height: 84px; font-family: var(--font); }
-.field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
-@media (max-width: 480px) { .field-row { grid-template-columns: 1fr; } }
-button.submit { background: var(--brand); color: white; padding: 16px 32px; font-size: 12px; letter-spacing: .18em; text-transform: uppercase; font-weight: 700; width: 100%; margin-top: 6px; transition: background .2s; }
-button.submit:hover:not(:disabled) { background: var(--brand-dark); }
-button.submit:disabled { opacity: .55; cursor: wait; }
-.form-error { background: #fdecea; color: #9a2a14; border-left: 3px solid #c44025; padding: 12px 14px; font-size: 13px; margin-bottom: 16px; display: none; }
-.form-error.show { display: block; }
-
-/* THANK YOU */
-.thanks { text-align: center; padding: 12px 0; }
-.thanks .check { width: 64px; height: 64px; background: var(--brand); border-radius: 50%; margin: 0 auto 22px; display: flex; align-items: center; justify-content: center; font-size: 30px; color: white; animation: pop .5s cubic-bezier(.2,1.5,.4,1); }
-@keyframes pop { from { transform: scale(0); opacity: 0; } to { transform: scale(1); opacity: 1; } }
-.thanks h2 { font-size: 26px; font-weight: 700; margin-bottom: 8px; }
-.thanks .sub { font-size: 14px; color: var(--ink-soft); margin-bottom: 26px; }
-.thanks .receipt { background: var(--bg-cream); padding: 18px 20px; text-align: left; border-left: 3px solid var(--brand); font-size: 13px; margin-bottom: 22px; }
-.thanks .receipt div { display: flex; justify-content: space-between; padding: 6px 0; border-bottom: 1px solid var(--line); }
-.thanks .receipt div:last-child { border-bottom: none; }
-.thanks .receipt span:first-child { color: var(--muted); letter-spacing: .14em; text-transform: uppercase; font-size: 11px; font-weight: 600; }
-.thanks .receipt span:last-child { color: var(--ink); font-family: 'JetBrains Mono', monospace, 'Courier New'; font-size: 12px; }
-.thanks .note { font-size: 12px; color: var(--muted); margin-bottom: 22px; line-height: 1.6; }
+:root { --bg:#fff; --bg-alt:#f7f5f1; --bg-cream:#faf8f4; --ink:#1a1a1a; --ink-soft:#4a4a4a; --muted:#888; --line:#e6e2d8; --line-soft:#f0ede5; --brand:#b89352; --brand-dark:#8a6e3c; --brand-light:#d9b878; --shadow:0 6px 24px -8px rgba(26,26,26,.12); --shadow-lg:0 20px 60px -20px rgba(26,26,26,.25); --font:"Mulish",-apple-system,system-ui,sans-serif; }
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{background:var(--bg);color:var(--ink);font-family:var(--font);font-size:15px;line-height:1.6;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+button{font-family:inherit;cursor:pointer;border:none;background:none;color:inherit}
+img{display:block;max-width:100%}
+.shell{max-width:1320px;margin:0 auto;padding:0 40px}
+@media(max-width:720px){.shell{padding:0 20px}}
+header.site{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.97);backdrop-filter:blur(12px);border-bottom:1px solid var(--line-soft)}
+header.site .row{display:flex;align-items:center;justify-content:space-between;padding:18px 0;gap:32px}
+.brand{display:flex;align-items:center;gap:12px;white-space:nowrap}
+.brand .mark{width:44px;height:44px;display:inline-flex;align-items:center;justify-content:center;background:var(--brand);color:#fff;font-weight:800;font-size:18px}
+.brand .name{display:flex;flex-direction:column;line-height:1.15}
+.brand .name .a{font-weight:700;font-size:16px;color:var(--ink)}
+.brand .name .b{font-size:9.5px;letter-spacing:.25em;text-transform:uppercase;color:var(--muted);margin-top:3px}
+nav.top{display:flex;gap:30px;font-size:13px;font-weight:500;color:var(--ink-soft)}
+nav.top a:hover{color:var(--brand)}
+@media(max-width:920px){nav.top{display:none}}
+.cta-pill{font-size:12px;font-weight:600;padding:11px 22px;background:var(--brand);color:#fff;text-transform:uppercase;transition:background .2s}
+.cta-pill:hover{background:var(--brand-dark)}
+.hero{position:relative;height:88vh;min-height:600px;overflow:hidden;background:#222}
+.hero-slide{position:absolute;inset:0;background-size:cover;background-position:center;opacity:0;transition:opacity 1.2s ease-in-out}
+.hero-slide.active{opacity:1}
+.hero-slide::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(0,0,0,.55) 0%,rgba(0,0,0,.25) 50%,rgba(0,0,0,.45) 100%)}
+.hero-content{position:absolute;left:0;right:0;bottom:0;padding:0 0 100px;z-index:2}
+.hero-content .shell{color:#fff}
+.hero-impression{font-size:10px;letter-spacing:.3em;text-transform:uppercase;opacity:.8;margin-bottom:20px}
+.hero h1{font-size:clamp(40px,6vw,72px);font-weight:300;line-height:1.05;letter-spacing:-.015em;max-width:800px;margin-bottom:14px}
+.hero h1 b{font-weight:700}
+.hero .tagline{font-size:clamp(16px,1.4vw,19px);max-width:600px;line-height:1.5;margin-bottom:32px;opacity:.92}
+.hero .know-more{display:inline-flex;align-items:center;gap:12px;font-size:12px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;padding:16px 32px;border:1.5px solid #fff;color:#fff;transition:all .25s}
+.hero .know-more:hover{background:#fff;color:var(--ink)}
+.hero-dots{position:absolute;bottom:32px;left:0;right:0;display:flex;justify-content:center;gap:8px;z-index:3}
+.hero-dot{width:32px;height:2px;background:rgba(255,255,255,.3);cursor:pointer}
+.hero-dot.active{background:#fff}
+.search-bar{position:relative;margin-top:-56px;z-index:10;margin-bottom:80px}
+.search-bar .box{background:#fff;box-shadow:var(--shadow-lg);display:grid;grid-template-columns:1fr 1fr 1fr auto}
+@media(max-width:720px){.search-bar .box{grid-template-columns:1fr}}
+.search-bar label{display:block;padding:18px 24px 16px;border-right:1px solid var(--line-soft);cursor:pointer}
+.search-bar label:last-of-type{border-right:none}
+.search-bar label:hover{background:var(--bg-cream)}
+.search-bar .lbl{font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--muted);margin-bottom:6px;font-weight:600}
+.search-bar select{width:100%;border:none;outline:none;font-family:var(--font);font-size:15px;font-weight:600;color:var(--ink);background:none;cursor:pointer;appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'%3E%3Cpath fill='%23b89352' d='M5 6L0 0h10z'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right center;padding-right:18px}
+.search-bar button.search{background:var(--brand);color:#fff;padding:0 44px;font-size:13px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;transition:background .2s}
+.search-bar button.search:hover{background:var(--brand-dark)}
+@media(max-width:720px){.search-bar button.search{padding:18px}}
+.cities{padding:0 0 80px}
+.cities .grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+@media(max-width:920px){.cities .grid{grid-template-columns:repeat(2,1fr)}}
+.city-tile{position:relative;aspect-ratio:4/5;overflow:hidden;cursor:pointer;background:#ddd}
+.city-tile img{width:100%;height:100%;object-fit:cover;transition:transform .8s cubic-bezier(.2,.7,.2,1)}
+.city-tile:hover img{transform:scale(1.08)}
+.city-tile::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 35%,rgba(0,0,0,.78) 100%)}
+.city-tile .label{position:absolute;left:24px;right:24px;bottom:24px;z-index:2;color:#fff}
+.city-tile .label .name{font-size:24px;font-weight:600;margin-bottom:4px}
+.city-tile .label .count{font-size:12px;letter-spacing:.18em;text-transform:uppercase;opacity:.85}
+.section-head{padding:60px 0 30px;text-align:center}
+.section-head .pre{font-size:11px;letter-spacing:.32em;text-transform:uppercase;color:var(--brand);margin-bottom:14px;font-weight:700}
+.section-head h2{font-size:clamp(32px,4.5vw,48px);font-weight:300;letter-spacing:-.012em;line-height:1.1}
+.section-head h2 b{font-weight:700}
+.tabs{display:flex;justify-content:center;gap:4px;border-bottom:1px solid var(--line);margin-bottom:40px;flex-wrap:wrap}
+.tab{padding:16px 28px;font-size:13px;font-weight:600;letter-spacing:.05em;color:var(--ink-soft);border-bottom:2px solid transparent;margin-bottom:-1px;transition:all .2s;text-transform:uppercase}
+.tab:hover{color:var(--ink)}
+.tab.active{color:var(--brand);border-bottom-color:var(--brand)}
+.tab .count{margin-left:8px;font-size:11px;background:var(--bg-alt);color:var(--ink-soft);padding:2px 8px;border-radius:99px}
+.tab.active .count{background:var(--brand);color:#fff}
+.carousel-wrap{position:relative;margin:0 -10px}
+.carousel{display:flex;gap:20px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;padding:4px 10px 20px;scrollbar-width:none}
+.carousel::-webkit-scrollbar{display:none}
+.carousel-arrow{position:absolute;top:38%;transform:translateY(-50%);width:48px;height:48px;background:#fff;color:var(--ink);border:1px solid var(--line);display:flex;align-items:center;justify-content:center;font-size:18px;box-shadow:var(--shadow);z-index:5;transition:all .2s}
+.carousel-arrow:hover{background:var(--brand);color:#fff;border-color:var(--brand)}
+.carousel-arrow.prev{left:-22px}
+.carousel-arrow.next{right:-22px}
+@media(max-width:720px){.carousel-arrow{display:none}}
+.proj-card{flex:0 0 360px;background:#fff;border:1px solid var(--line-soft);scroll-snap-align:start;cursor:pointer;transition:all .35s cubic-bezier(.2,.7,.2,1);display:flex;flex-direction:column}
+@media(max-width:540px){.proj-card{flex:0 0 calc(100vw - 60px)}}
+.proj-card:hover{box-shadow:var(--shadow-lg);border-color:var(--brand);transform:translateY(-4px)}
+.proj-card .img-wrap{aspect-ratio:4/3;overflow:hidden;position:relative;background:#eee}
+.proj-card .img-wrap img{width:100%;height:100%;object-fit:cover;transition:transform .8s cubic-bezier(.2,.7,.2,1)}
+.proj-card:hover .img-wrap img{transform:scale(1.05)}
+.proj-card .impression{position:absolute;top:12px;left:12px;z-index:2;font-size:10px;letter-spacing:.2em;text-transform:uppercase;background:rgba(255,255,255,.95);color:var(--ink-soft);padding:5px 11px;font-weight:600}
+.proj-card .status-flag{position:absolute;top:12px;right:12px;z-index:2;font-size:10px;letter-spacing:.18em;text-transform:uppercase;background:var(--brand);color:#fff;padding:5px 11px;font-weight:700}
+.proj-card .body{padding:22px 24px 24px;flex:1;display:flex;flex-direction:column}
+.proj-card .body .pname{font-size:22px;font-weight:700;line-height:1.2;margin-bottom:6px}
+.proj-card .body .ploc{font-size:13px;color:var(--muted);margin-bottom:14px;display:flex;align-items:center;gap:6px}
+.proj-card .body .ploc::before{content:"📍";font-size:13px}
+.proj-card .body .ptype{font-size:14px;font-weight:600;color:var(--ink);padding-top:14px;border-top:1px solid var(--line-soft);margin-top:auto}
+.proj-card .body .pcta{margin-top:16px;font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--brand);display:flex;align-items:center;justify-content:space-between}
+.proj-card .body .pcta .arrow{width:28px;height:28px;border:1px solid var(--brand);display:inline-flex;align-items:center;justify-content:center;transition:all .25s}
+.proj-card:hover .body .pcta .arrow{background:var(--brand);color:#fff}
+.testimonials{background:var(--bg-cream);padding:100px 0;margin-top:100px}
+.testimonials .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;margin-top:40px}
+@media(max-width:920px){.testimonials .grid{grid-template-columns:1fr}}
+.testimonial{background:#fff;padding:32px 28px 28px;border-top:3px solid var(--brand)}
+.testimonial .quote-mark{font-size:56px;line-height:.5;color:var(--brand);font-family:Georgia,serif;margin-bottom:8px}
+.testimonial h4{font-size:17px;font-weight:700;margin-bottom:10px}
+.testimonial p{font-size:14px;color:var(--ink-soft);line-height:1.65;margin-bottom:20px}
+.testimonial .who{font-size:13px;font-weight:700;color:var(--ink)}
+.testimonial .where{font-size:12px;color:var(--muted);margin-top:2px}
+.cta-band{background:var(--ink);color:#fff;padding:80px 0;text-align:center}
+.cta-band h2{font-size:clamp(28px,4vw,42px);font-weight:300;line-height:1.1;margin-bottom:14px;max-width:720px;margin-left:auto;margin-right:auto}
+.cta-band h2 b{font-weight:700;color:var(--brand-light)}
+.cta-band p{color:rgba(255,255,255,.7);font-size:16px;margin-bottom:32px}
+.cta-band a{display:inline-block;padding:16px 36px;background:var(--brand);color:#fff;font-size:12px;font-weight:700;letter-spacing:.18em;text-transform:uppercase}
+.cta-band a:hover{background:var(--brand-light)}
+footer{background:var(--bg-cream);padding:64px 0 28px;border-top:1px solid var(--line)}
+footer .top{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:48px;margin-bottom:48px}
+@media(max-width:820px){footer .top{grid-template-columns:1fr 1fr;gap:32px}}
+footer .brand-block p{margin-top:18px;color:var(--ink-soft);font-size:13px;line-height:1.7;max-width:320px}
+footer .col h4{font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--ink);margin-bottom:16px;font-weight:800}
+footer .col a{display:block;padding:5px 0;font-size:13px;color:var(--ink-soft)}
+footer .col a:hover{color:var(--brand)}
+footer .bottom{padding-top:24px;border-top:1px solid var(--line);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;font-size:12px;color:var(--muted)}
+.modal-bg{position:fixed;inset:0;background:rgba(26,26,26,.65);backdrop-filter:blur(6px);display:none;align-items:center;justify-content:center;z-index:1000;padding:24px}
+.modal-bg.open{display:flex;animation:fadeIn .25s ease-out}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+.modal{background:#fff;width:100%;max-width:660px;max-height:92vh;overflow-y:auto;position:relative;animation:slideUp .4s cubic-bezier(.2,.7,.2,1)}
+@keyframes slideUp{from{transform:translateY(24px);opacity:0}to{transform:translateY(0);opacity:1}}
+.modal .close{position:absolute;top:16px;right:16px;width:40px;height:40px;display:flex;align-items:center;justify-content:center;font-size:22px;color:#fff;background:rgba(26,26,26,.6);z-index:5}
+.modal .close:hover{background:var(--brand)}
+.modal-banner{height:200px;position:relative;overflow:hidden}
+.modal-banner img{width:100%;height:100%;object-fit:cover}
+.modal-banner::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,0) 30%,rgba(0,0,0,.75) 100%)}
+.modal-banner .overlay{position:absolute;left:36px;bottom:22px;right:36px;z-index:2;color:#fff}
+.modal-banner .dev{font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--brand-light);margin-bottom:6px;font-weight:700}
+.modal-banner h2{font-size:26px;font-weight:700;line-height:1.15}
+.modal-inner{padding:32px 36px 36px}
+@media(max-width:540px){.modal-inner{padding:26px 22px}.modal-banner .overlay{left:22px;right:22px}}
+.modal-inner .intro{font-size:14px;color:var(--ink-soft);line-height:1.6;margin-bottom:24px}
+.field{margin-bottom:18px}
+.field label{display:block;font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin-bottom:8px;font-weight:700}
+.field input,.field select,.field textarea{width:100%;padding:13px 14px;font-family:var(--font);font-size:14px;border:1px solid var(--line);background:#fff;color:var(--ink);transition:border-color .2s}
+.field input:focus,.field select:focus,.field textarea:focus{outline:none;border-color:var(--brand)}
+.field select{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'%3E%3Cpath fill='%23b89352' d='M5 6L0 0h10z'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center;padding-right:36px}
+.field textarea{resize:vertical;min-height:84px;font-family:var(--font)}
+.field-row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media(max-width:480px){.field-row{grid-template-columns:1fr}}
+button.submit{background:var(--brand);color:#fff;padding:16px 32px;font-size:12px;letter-spacing:.18em;text-transform:uppercase;font-weight:700;width:100%;margin-top:6px;transition:background .2s}
+button.submit:hover:not(:disabled){background:var(--brand-dark)}
+button.submit:disabled{opacity:.55;cursor:wait}
+.form-error{background:#fdecea;color:#9a2a14;border-left:3px solid #c44025;padding:12px 14px;font-size:13px;margin-bottom:16px;display:none}
+.form-error.show{display:block}
+.thanks{text-align:center;padding:12px 0}
+.thanks .check{width:64px;height:64px;background:var(--brand);border-radius:50%;margin:0 auto 22px;display:flex;align-items:center;justify-content:center;font-size:30px;color:#fff;animation:pop .5s cubic-bezier(.2,1.5,.4,1)}
+@keyframes pop{from{transform:scale(0);opacity:0}to{transform:scale(1);opacity:1}}
+.thanks h2{font-size:26px;font-weight:700;margin-bottom:8px}
+.thanks .sub{font-size:14px;color:var(--ink-soft);margin-bottom:26px}
+.thanks .receipt{background:var(--bg-cream);padding:18px 20px;text-align:left;border-left:3px solid var(--brand);font-size:13px;margin-bottom:22px}
+.thanks .receipt div{display:flex;justify-content:space-between;padding:6px 0;border-bottom:1px solid var(--line)}
+.thanks .receipt div:last-child{border-bottom:none}
+.thanks .receipt span:first-child{color:var(--muted);letter-spacing:.14em;text-transform:uppercase;font-size:11px;font-weight:600}
+.thanks .receipt span:last-child{color:var(--ink);font-family:'JetBrains Mono',monospace;font-size:12px}
+.thanks .note{font-size:12px;color:var(--muted);margin-bottom:22px}
 </style>
 </head>
 <body>
@@ -223,10 +170,7 @@ button.submit:disabled { opacity: .55; cursor: wait; }
   <div class="shell row">
     <a href="#" class="brand">
       <span class="mark">V</span>
-      <span class="name">
-        <span class="a">Vastu Realty</span>
-        <span class="b">Channel Partner · Est. 2014</span>
-      </span>
+      <span class="name"><span class="a">Vastu Realty</span><span class="b">Channel Partner · Est. 2014</span></span>
     </a>
     <nav class="top">
       <a href="#projects">Residential</a>
@@ -260,18 +204,9 @@ button.submit:disabled { opacity: .55; cursor: wait; }
 <section class="search-bar">
   <div class="shell">
     <div class="box">
-      <label>
-        <div class="lbl">Location</div>
-        <select id="f-location"><option value="">All Locations</option><option>Ahmedabad</option><option>Gandhinagar</option><option>Surat</option><option>Vadodara</option><option>Mahudi</option></select>
-      </label>
-      <label>
-        <div class="lbl">Property Type</div>
-        <select id="f-type"><option value="">All Types</option><option value="Residential">Residential</option><option value="Commercial">Commercial</option><option value="Plot">Plot</option></select>
-      </label>
-      <label>
-        <div class="lbl">Status</div>
-        <select id="f-status"><option value="">Any Status</option><option value="ready">Ready to Move</option><option value="underConstruction">Under Construction</option><option value="upcoming">Upcoming</option></select>
-      </label>
+      <label><div class="lbl">Location</div><select id="f-location"><option value="">All Locations</option><option>Ahmedabad</option><option>Surat</option><option>Vadodara</option><option>Mahudi</option></select></label>
+      <label><div class="lbl">Property Type</div><select id="f-type"><option value="">All Types</option><option value="Residential">Residential</option><option value="Commercial">Commercial</option><option value="Plot">Plot</option></select></label>
+      <label><div class="lbl">Status</div><select id="f-status"><option value="">Any Status</option><option value="ready">Ready to Move</option><option value="underConstruction">Under Construction</option><option value="upcoming">Upcoming</option></select></label>
       <button class="search" onclick="scrollToProjects()">Search</button>
     </div>
   </div>
@@ -281,19 +216,19 @@ button.submit:disabled { opacity: .55; cursor: wait; }
   <div class="shell">
     <div class="grid">
       <div class="city-tile" onclick="filterByCity('Ahmedabad')">
-        <img src="https://images.unsplash.com/photo-1606298855672-3efb63017be8?w=800&q=80&auto=format&fit=crop" alt="Ahmedabad"/>
+        <img src="https://images.unsplash.com/photo-1606298855672-3efb63017be8?w=800&q=80&auto=format&fit=crop" alt=""/>
         <div class="label"><div class="name">Ahmedabad</div><div class="count" id="ct-Ahmedabad">— Projects</div></div>
       </div>
       <div class="city-tile" onclick="filterByCity('Surat')">
-        <img src="https://images.unsplash.com/photo-1567496898669-ee935f5f647a?w=800&q=80&auto=format&fit=crop" alt="Surat"/>
+        <img src="https://images.unsplash.com/photo-1567496898669-ee935f5f647a?w=800&q=80&auto=format&fit=crop" alt=""/>
         <div class="label"><div class="name">Surat</div><div class="count" id="ct-Surat">— Projects</div></div>
       </div>
       <div class="city-tile" onclick="filterByCity('Vadodara')">
-        <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=800&q=80&auto=format&fit=crop" alt="Vadodara"/>
+        <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=800&q=80&auto=format&fit=crop" alt=""/>
         <div class="label"><div class="name">Vadodara</div><div class="count" id="ct-Vadodara">— Projects</div></div>
       </div>
       <div class="city-tile" onclick="filterByCity('Mahudi')">
-        <img src="https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf?w=800&q=80&auto=format&fit=crop" alt="Mahudi"/>
+        <img src="https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf?w=800&q=80&auto=format&fit=crop" alt=""/>
         <div class="label"><div class="name">Mahudi</div><div class="count" id="ct-Mahudi">— Projects</div></div>
       </div>
     </div>
@@ -313,29 +248,9 @@ button.submit:disabled { opacity: .55; cursor: wait; }
       <button class="tab" data-bucket="upcoming">Upcoming <span class="count" data-c="upcoming">0</span></button>
     </div>
     <div class="carousel-wrap">
-      <button class="carousel-arrow prev" onclick="scrollCarousel('cr-residential', -1)" aria-label="Previous">‹</button>
-      <div class="carousel" id="cr-residential"><div class="loading"><div class="spinner"></div>Loading inventory from Supabase…</div></div>
-      <button class="carousel-arrow next" onclick="scrollCarousel('cr-residential', 1)" aria-label="Next">›</button>
-    </div>
-  </div>
-</section>
-
-<section>
-  <div class="shell">
-    <div class="section-head">
-      <div class="pre">02 · Commercial &amp; Retail</div>
-      <h2>Commercial <b>Projects</b></h2>
-    </div>
-    <div class="tabs" data-type="commercial">
-      <button class="tab active" data-bucket="all">All <span class="count" data-c="all">0</span></button>
-      <button class="tab" data-bucket="ready">Ready to Move <span class="count" data-c="ready">0</span></button>
-      <button class="tab" data-bucket="underConstruction">Under Construction <span class="count" data-c="underConstruction">0</span></button>
-      <button class="tab" data-bucket="upcoming">Upcoming <span class="count" data-c="upcoming">0</span></button>
-    </div>
-    <div class="carousel-wrap">
-      <button class="carousel-arrow prev" onclick="scrollCarousel('cr-commercial', -1)" aria-label="Previous">‹</button>
-      <div class="carousel" id="cr-commercial"><div class="empty">No commercial projects in the catalog yet. They appear here automatically once added.</div></div>
-      <button class="carousel-arrow next" onclick="scrollCarousel('cr-commercial', 1)" aria-label="Next">›</button>
+      <button class="carousel-arrow prev" onclick="scrollCarousel('cr-residential', -1)">‹</button>
+      <div class="carousel" id="cr-residential"></div>
+      <button class="carousel-arrow next" onclick="scrollCarousel('cr-residential', 1)">›</button>
     </div>
   </div>
 </section>
@@ -357,14 +272,14 @@ button.submit:disabled { opacity: .55; cursor: wait; }
       <div class="testimonial">
         <div class="quote-mark">"</div>
         <h4>Smooth possession of our flat</h4>
-        <p>I am very happy with the cooperation in completing all formalities to get an easy and smooth possession of my flat. Thanks a ton.</p>
+        <p>Very happy with the cooperation in completing all formalities to get an easy and smooth possession of my flat.</p>
         <div class="who">Kalpesh Mendapara</div>
         <div class="where">Resident · Sun South Park, Ahmedabad</div>
       </div>
       <div class="testimonial">
         <div class="quote-mark">"</div>
         <h4>Extremely thankful for the support</h4>
-        <p>The consistent follow-ups were encouraging. We are extremely happy and satisfied with the service rendered throughout our journey.</p>
+        <p>The consistent follow-ups were encouraging. We are extremely happy and satisfied with the service rendered.</p>
         <div class="who">Sanjay Kaul</div>
         <div class="where">Resident · Happy Home Aakanksha, Surat</div>
       </div>
@@ -420,81 +335,22 @@ button.submit:disabled { opacity: .55; cursor: wait; }
     </div>
     <div class="bottom">
       <div>© 2026 Vastu Realty Partners LLP · GUJRERA/AGT/0042</div>
-      <div>Inventory synced live · Powered by Supabase + Zoho CRM</div>
+      <div>Powered by Zoho CRM</div>
     </div>
   </div>
 </footer>
 
-<script type="module">
-// ============================================================================
-// CONFIG — set these to YOUR Supabase project values.
-// Both are safe to expose publicly (anon key is designed for browser use).
-// Get them from: Supabase Dashboard → Project Settings → API
-// ============================================================================
-const SUPABASE_URL  = "https://mrflywfooumlnnddslyw.supabase.co";   // e.g. https://mrflywfooumlnnddslyw.supabase.co
-const SUPABASE_ANON = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im1yZmx5d2Zvb3VtbG5uZGRzbHl3Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzkxMjI5NzIsImV4cCI6MjA5NDY5ODk3Mn0.UXFEkLyfEK3ZBPH4yLksA9RRz5w1lWxG0f4aztuVbl4";       // long JWT starting with eyJ...
+<script>
+const ZOHO_WEBHOOK = "https://www.zohoapis.com/crm/v7/functions/vastu_website_lead/actions/execute?auth_type=apikey&zapikey=1003.75eb94815ac56338f66d731b5983c4ad.d4ebfc1b56e1fd96d7327c16706796fa";
 
-import { createClient } from "https://esm.sh/@supabase/supabase-js@2";
-const supa = createClient(SUPABASE_URL, SUPABASE_ANON);
+const PROJECTS = [
+  { id: "6251208000006838011", name: "Adani Shantigram – The Meadows", developer: "Adani Realty", type: "Residential", status: "Development in Progress", city: "Ahmedabad", subtype: "3, 4 & 5 BHK Premium Homes", image: "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=1200&q=80&auto=format&fit=crop" },
+  { id: "6251208000006838012", name: "Sun South Park", developer: "Sun Builders Group", type: "Residential", status: "Development in Progress", city: "Ahmedabad", subtype: "2, 3 BHK Apartments", image: "https://images.unsplash.com/photo-1590725140246-20acdee442be?w=1200&q=80&auto=format&fit=crop" },
+  { id: "6251208000006838013", name: "Arvind Uplands – Mahudi", developer: "Arvind SmartSpaces Ltd.", type: "Plot", status: "Planning", city: "Mahudi", subtype: "Residential Plots", image: "https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=1200&q=80&auto=format&fit=crop" },
+  { id: "6251208000006838014", name: "Happy Home Aakanksha", developer: "Happy Home Group", type: "Residential", status: "Development in Progress", city: "Surat", subtype: "2, 3 BHK Apartments", image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&q=80&auto=format&fit=crop" },
+  { id: "6251208000006838015", name: "Alembic Urban Forest – Edenpark", developer: "Alembic Real Estate", type: "Residential", status: "Completed", city: "Vadodara", subtype: "2 BHK Ready-to-Move Apartments", image: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1200&q=80&auto=format&fit=crop" },
+];
 
-// ============================================================================
-// Image pool — royalty-free architecture photos from Unsplash.
-// Stable hash → same image per project across reloads.
-// ============================================================================
-const IMG = {
-  residential_ready: [
-    "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=1200&q=80&auto=format&fit=crop",
-    "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1200&q=80&auto=format&fit=crop",
-    "https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=1200&q=80&auto=format&fit=crop",
-    "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=1200&q=80&auto=format&fit=crop",
-    "https://images.unsplash.com/photo-1493809842364-78817add7ffb?w=1200&q=80&auto=format&fit=crop",
-  ],
-  residential_underConstruction: [
-    "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&q=80&auto=format&fit=crop",
-    "https://images.unsplash.com/photo-1590725140246-20acdee442be?w=1200&q=80&auto=format&fit=crop",
-    "https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf?w=1200&q=80&auto=format&fit=crop",
-    "https://images.unsplash.com/photo-1567496898669-ee935f5f647a?w=1200&q=80&auto=format&fit=crop",
-    "https://images.unsplash.com/photo-1486325212027-8081e485255e?w=1200&q=80&auto=format&fit=crop",
-  ],
-  residential_upcoming: [
-    "https://images.unsplash.com/photo-1494526585095-c41746248156?w=1200&q=80&auto=format&fit=crop",
-    "https://images.unsplash.com/photo-1431576901776-e539bd916ba2?w=1200&q=80&auto=format&fit=crop",
-    "https://images.unsplash.com/photo-1542621334-a254cf47733d?w=1200&q=80&auto=format&fit=crop",
-  ],
-  plot: [
-    "https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=1200&q=80&auto=format&fit=crop",
-    "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=1200&q=80&auto=format&fit=crop",
-  ],
-  commercial_ready: ["https://images.unsplash.com/photo-1497366216548-37526070297c?w=1200&q=80&auto=format&fit=crop"],
-  commercial_underConstruction: ["https://images.unsplash.com/photo-1577415124269-fc1140a69e91?w=1200&q=80&auto=format&fit=crop"],
-  commercial_upcoming: ["https://images.unsplash.com/photo-1497366754035-f200968a6e72?w=1200&q=80&auto=format&fit=crop"],
-};
-function hashId(s) { let h = 0; for (let i = 0; i < s.length; i++) h = ((h << 5) - h + s.charCodeAt(i)) | 0; return Math.abs(h); }
-function imageFor(p) {
-  if (p.image_url) return p.image_url;
-  const type = (p.project_type || '').toLowerCase();
-  const st = p.project_status || '';
-  let bucket = 'residential_ready';
-  if (type === 'commercial') {
-    bucket = st === 'Completed' ? 'commercial_ready'
-           : st === 'Development in Progress' ? 'commercial_underConstruction'
-           : 'commercial_upcoming';
-  } else if (type === 'plot') {
-    bucket = 'plot';
-  } else {
-    bucket = st === 'Completed' ? 'residential_ready'
-           : st === 'Development in Progress' ? 'residential_underConstruction'
-           : 'residential_upcoming';
-  }
-  const pool = IMG[bucket] || IMG.residential_ready;
-  return pool[hashId(p.id || p.name || '') % pool.length];
-}
-
-// ============================================================================
-// State
-// ============================================================================
-let allProjects = [];      // raw rows from Supabase
-let grouped = {};          // { residential: { all, ready, underConstruction, upcoming }, commercial: {...}, plot: {...} }
 let currentProject = null;
 
 function statusBucket(s) {
@@ -503,127 +359,61 @@ function statusBucket(s) {
   if (s === 'Planning' || s === 'Design') return 'upcoming';
   return 'other';
 }
-function typeGroup(t) {
-  if (t === 'Residential') return 'residential';
-  if (t === 'Commercial') return 'commercial';
-  if (t === 'Plot') return 'plot';
-  return 'other';
-}
-
-// ============================================================================
-// Load projects from Supabase
-// ============================================================================
-async function loadProjects() {
-  try {
-    const { data, error } = await supa
-      .from('projects')
-      .select('*')
-      .order('end_date', { ascending: false });
-    if (error) throw error;
-    allProjects = data || [];
-    groupAndRender();
-  } catch (err) {
-    console.error(err);
-    document.getElementById('cr-residential').innerHTML =
-      `<div class="empty">Couldn't reach Supabase. ${escapeHtml(err.message || 'Check your URL and anon key.')}</div>`;
-  }
-}
-
-function groupAndRender() {
-  grouped = {
-    residential: { all: [], ready: [], underConstruction: [], upcoming: [] },
-    commercial:  { all: [], ready: [], underConstruction: [], upcoming: [] },
-    plot:        { all: [], ready: [], underConstruction: [], upcoming: [] },
-  };
-  for (const p of allProjects) {
-    const g = typeGroup(p.project_type);
-    if (!grouped[g]) continue;
-    grouped[g].all.push(p);
-    const b = statusBucket(p.project_status);
-    if (b !== 'other') grouped[g][b].push(p);
-  }
-  renderAll();
+function statusLabel(s) {
+  return { 'Completed': 'Ready', 'Development in Progress': 'Under Construction', 'Planning': 'Upcoming', 'Design': 'Upcoming' }[s] || 'New';
 }
 
 function renderAll() {
-  // City counts from actual data
   ['Ahmedabad','Surat','Vadodara','Mahudi'].forEach(city => {
-    const n = allProjects.filter(p => (p.city || '').toLowerCase() === city.toLowerCase()).length;
+    const n = PROJECTS.filter(p => p.city === city).length;
     const el = document.getElementById(`ct-${city}`);
     if (el) el.textContent = `${n} Project${n === 1 ? '' : 's'}`;
   });
-
-  ['residential','commercial'].forEach(type => {
-    const grp = grouped[type];
-    ['all','ready','underConstruction','upcoming'].forEach(b => {
-      const el = document.querySelector(`.tabs[data-type="${type}"] .count[data-c="${b}"]`);
-      if (el) el.textContent = grp[b]?.length || 0;
-    });
-    renderCarousel(type, 'all');
+  const resProjects = PROJECTS.filter(p => p.type === 'Residential' || p.type === 'Plot');
+  ['all','ready','underConstruction','upcoming'].forEach(b => {
+    const n = b === 'all' ? resProjects.length : resProjects.filter(p => statusBucket(p.status) === b).length;
+    const el = document.querySelector(`.tabs[data-type="residential"] .count[data-c="${b}"]`);
+    if (el) el.textContent = n;
   });
-
-  // Fold plots into residential carousel (same buyer)
-  if (grouped.plot.all.length) {
-    const car = document.getElementById('cr-residential');
-    const plotsHtml = grouped.plot.all.map((p, i) => projCard(p, 1000 + i)).join('');
-    if (!car.querySelector('.empty')) {
-      car.insertAdjacentHTML('beforeend', plotsHtml);
-      bindCardClicks(car);
-    }
-  }
+  renderCarousel('residential', 'all');
 }
 
 function renderCarousel(type, bucket) {
   const car = document.getElementById(`cr-${type}`);
-  const items = grouped[type]?.[bucket] || [];
+  let items = PROJECTS.filter(p => p.type === 'Residential' || p.type === 'Plot');
+  if (bucket !== 'all') items = items.filter(p => statusBucket(p.status) === bucket);
   if (items.length === 0) {
-    car.innerHTML = `<div class="empty">No projects in this category yet.</div>`;
+    car.innerHTML = `<div style="padding:60px 20px;text-align:center;color:var(--muted);font-style:italic;border:1px dashed var(--line);background:var(--bg-cream);width:100%">No projects in this category.</div>`;
     return;
   }
-  car.innerHTML = items.map((p, i) => projCard(p, i)).join('');
-  bindCardClicks(car);
-}
-
-function bindCardClicks(container) {
-  container.querySelectorAll('.proj-card').forEach(el => {
+  car.innerHTML = items.map(p => projCard(p)).join('');
+  car.querySelectorAll('.proj-card').forEach(el => {
     el.addEventListener('click', () => {
       const id = el.dataset.id;
-      const p = allProjects.find(x => x.id === id);
+      const p = PROJECTS.find(x => x.id === id);
       if (p) openInquiry(p);
     });
   });
 }
 
-function projCard(p, i) {
-  const statusLabel = {
-    'Completed': 'Ready',
-    'Development in Progress': 'Under Construction',
-    'Planning': 'Upcoming',
-    'Design': 'Upcoming',
-  }[p.project_status] || 'New';
-  const loc = p.city ? `${p.city}, Gujarat` : 'Gujarat, India';
-  const sub = p.bhk_subtype || (p.project_type === 'Plot' ? 'Residential Plots' : p.project_type === 'Commercial' ? 'Commercial Spaces' : '2, 3 BHK Apartments');
-  const img = imageFor(p);
+function projCard(p) {
   return `
     <article class="proj-card" data-id="${p.id}">
       <div class="img-wrap">
-        <img src="${img}" alt="${escapeHtml(p.name)}" loading="lazy" />
+        <img src="${p.image}" alt="${escapeHtml(p.name)}" loading="lazy" />
         <span class="impression">Artistic Impression</span>
-        <span class="status-flag">${statusLabel}</span>
+        <span class="status-flag">${statusLabel(p.status)}</span>
       </div>
       <div class="body">
         <div class="pname">${escapeHtml(p.name)}</div>
-        <div class="ploc">${escapeHtml(loc)}</div>
-        <div class="ptype">${escapeHtml(sub)}</div>
+        <div class="ploc">${escapeHtml(p.city)}, Gujarat</div>
+        <div class="ptype">${escapeHtml(p.subtype)}</div>
         <div class="pcta"><span>Enquire Now</span><span class="arrow">→</span></div>
       </div>
     </article>
   `;
 }
 
-// ============================================================================
-// Tabs, hero, search, scroll
-// ============================================================================
 document.querySelectorAll('.tabs').forEach(group => {
   const type = group.dataset.type;
   group.addEventListener('click', e => {
@@ -635,23 +425,16 @@ document.querySelectorAll('.tabs').forEach(group => {
   });
 });
 
-window.scrollCarousel = (id, dir) => {
-  document.getElementById(id).scrollBy({ left: dir * 400, behavior: 'smooth' });
-};
+window.scrollCarousel = (id, dir) => document.getElementById(id).scrollBy({ left: dir * 400, behavior: 'smooth' });
 window.scrollToProjects = () => {
   const status = document.getElementById('f-status').value;
-  const type = document.getElementById('f-type').value;
-  const targetType = type === 'Commercial' ? 'commercial' : 'residential';
   if (status) {
-    const g = document.querySelector(`.tabs[data-type="${targetType}"]`);
+    const g = document.querySelector(`.tabs[data-type="residential"]`);
     g?.querySelector(`.tab[data-bucket="${status}"]`)?.click();
   }
   document.getElementById('projects').scrollIntoView({ behavior: 'smooth' });
 };
-window.filterByCity = (city) => {
-  document.getElementById('f-location').value = city;
-  window.scrollToProjects();
-};
+window.filterByCity = (city) => { document.getElementById('f-location').value = city; window.scrollToProjects(); };
 
 let heroIdx = 0;
 const slides = document.querySelectorAll('.hero-slide');
@@ -660,9 +443,6 @@ function showSlide(i) { slides.forEach(s => s.classList.remove('active')); dots.
 dots.forEach(d => d.addEventListener('click', () => showSlide(+d.dataset.i)));
 setInterval(() => showSlide((heroIdx + 1) % slides.length), 5500);
 
-// ============================================================================
-// Inquiry modal & form
-// ============================================================================
 function openInquiry(project) {
   currentProject = project;
   document.getElementById('modal-body').innerHTML = inquiryFormHtml(project);
@@ -680,12 +460,11 @@ document.getElementById('modal').addEventListener('click', e => { if (e.target.i
 document.addEventListener('keydown', e => { if (e.key === 'Escape') window.closeModal(); });
 
 function inquiryFormHtml(p) {
-  const img = imageFor(p);
   return `
     <div class="modal-banner">
-      <img src="${img}" alt="" />
+      <img src="${p.image}" alt="" />
       <div class="overlay">
-        <div class="dev">${escapeHtml(p.developer_name || 'Project Inquiry')}</div>
+        <div class="dev">${escapeHtml(p.developer)}</div>
         <h2>${escapeHtml(p.name)}</h2>
       </div>
     </div>
@@ -724,39 +503,54 @@ async function submitInquiry(e) {
   const btn = document.getElementById('submit-btn');
   const errBox = document.getElementById('form-error');
   errBox.classList.remove('show');
+
   const f = e.target;
   const lastName = f.lastName.value.trim();
   const phone = f.phone.value.trim();
   if (!lastName) return showErr('Please enter your last name.');
   if (!phone) return showErr('Please enter your phone number.');
+
   btn.disabled = true;
   btn.textContent = 'Sending…';
 
-  const payload = {
-    first_name: f.firstName.value.trim() || null,
-    last_name: lastName,
-    email: f.email.value.trim() || null,
-    phone,
-    city: f.city.value.trim() || null,
-    possession_timeline: f.possessionTimeline.value || null,
-    purpose: f.purpose.value || null,
-    message: f.message.value.trim() || null,
-    project_id: currentProject.id,
-    project_name: currentProject.name,
-    source: 'Website',
-    status: 'New',
-  };
+  const body = new URLSearchParams();
+  body.set('firstName', f.firstName.value.trim());
+  body.set('lastName', lastName);
+  body.set('email', f.email.value.trim());
+  body.set('phone', phone);
+  body.set('city', f.city.value.trim());
+  body.set('possessionTimeline', f.possessionTimeline.value);
+  body.set('purpose', f.purpose.value);
+  body.set('message', f.message.value.trim());
+  body.set('projectId', currentProject.id);
+  body.set('projectName', currentProject.name);
 
   try {
-    const { data, error } = await supa.from('leads').insert(payload).select().single();
-    if (error) throw error;
-    showThanks({
-      leadId: String(data.id),
-      leadName: `${payload.first_name || ''} ${lastName}`.trim(),
-      projectName: currentProject.name,
+    const res = await fetch(ZOHO_WEBHOOK, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: body.toString(),
     });
+    const text = await res.text();
+    let data;
+    try { data = JSON.parse(text); } catch { data = { raw: text }; }
+    let inner = data;
+    if (data.code === 'success' && data.details && data.details.output) {
+      try { inner = JSON.parse(data.details.output); } catch { inner = data.details.output; }
+    } else if (data.output) {
+      try { inner = JSON.parse(data.output); } catch { inner = data.output; }
+    }
+    if (inner && inner.success) {
+      showThanks({
+        leadId: inner.leadId,
+        leadName: `${f.firstName.value.trim()} ${lastName}`.trim(),
+        projectName: currentProject.name,
+      });
+    } else {
+      throw new Error((inner && inner.error) || (data && data.message) || text || 'Unknown error');
+    }
   } catch (err) {
-    showErr(`Couldn't submit: ${err.message || 'Unknown error'}`);
+    showErr(`Couldn't submit: ${err.message}`);
   }
 
   function showErr(msg) {
@@ -774,12 +568,12 @@ function showThanks(data) {
       <h2>Thank you, ${escapeHtml(data.leadName || 'and welcome')}.</h2>
       <p class="sub">Your inquiry has been logged. A consultant will be in touch shortly.</p>
       <div class="receipt">
-        <div><span>Lead created in</span><span>Supabase</span></div>
-        <div><span>Lead ID</span><span>#${escapeHtml(data.leadId)}</span></div>
+        <div><span>Lead created in</span><span>Zoho CRM</span></div>
+        <div><span>Lead ID</span><span>${escapeHtml(data.leadId)}</span></div>
         <div><span>Interested project</span><span>${escapeHtml(data.projectName || '—')}</span></div>
         <div><span>Status</span><span>New</span></div>
       </div>
-      <div class="note">You will receive an SMS confirmation on the number you provided. Our team will sync this to Zoho CRM and reach out within 4 business hours.</div>
+      <div class="note">You will receive an SMS confirmation on the number you provided. For urgent queries, call +91 99999 99999.</div>
       <button class="submit" onclick="closeModal()">Close</button>
     </div>
   `;
@@ -790,7 +584,7 @@ function escapeHtml(s) {
   return String(s).replace(/[&<>"']/g, m => ({ '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;' }[m]));
 }
 
-loadProjects();
+renderAll();
 </script>
 </body>
 </html>
